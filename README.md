@@ -5,18 +5,18 @@
 
     1) 쿼리문 사용 시
 
-    ```sql
-    SELECT * FROM FooTable WHERE FooTable.Key IN ('FOO1', 'FOO2');
-    ```
+```sql
+SELECT * FROM FooTable WHERE FooTable.Key IN ('FOO1', 'FOO2');
+```
     
     등과 같은 쿼리문 사용 시 일련의 데이터 목록으로부터 입력 위한 문자열로 변환이 필요 할 경우
 
-    2) 개발 과정에서
+    1) 개발 과정에서
 
-    ```csharp
-    string[] fooArray = new string[] { "BAR1", "BAR2" };
-    char[] fooArray = new char[] { 'a', 'b', 'c' }; 
-    ```
+```csharp
+string[] fooArray = new string[] { "BAR1", "BAR2" };
+char[] fooArray = new char[] { 'a', 'b', 'c' }; 
+```
 
     등과 같이 일련의 문자열 목록 혹은 단일 문자 목록으로부터 입력 위한 문자열 혹은 문자로 변환이 필요 할 경우
 
