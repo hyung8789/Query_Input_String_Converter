@@ -8,7 +8,7 @@ namespace 쿼리_입력_문자열_변환기
 {
     internal class Program
     {
-        public static readonly string selfProcessFileName =
+        public static readonly string SELF_PROCESS_FILE_NAME =
             System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace 쿼리_입력_문자열_변환기
 
             //입력 구분자에 따라 분리
             string lines = File.ReadAllText(targetFileName);
-            return lines.Split(SettingManager.INPUT_DELIMITER);
+            return lines.Split(SettingManager._inputDelimiter);
         }
         /// <summary>
         /// 대상 문자열을 대상 파일에 기록
@@ -64,12 +64,12 @@ namespace 쿼리_입력_문자열_변환기
             {
                 if (!string.IsNullOrEmpty(targetData[i].Trim()))
                 {
-                    targetData[i] = SettingManager.SQL_STR_SIGN_TYPE + targetData[i].Trim();
+                    targetData[i] = SettingManager._sqlStrSignType + targetData[i].Trim();
 
                     if (i == targetData.Length - 1) //마지막 행일 경우
-                        targetData[i] += SettingManager.SQL_STR_SIGN_TYPE;
+                        targetData[i] += SettingManager._sqlStrSignType;
                     else
-                        targetData[i] += SettingManager.SQL_STR_SIGN_TYPE + ",";
+                        targetData[i] += SettingManager._sqlStrSignType + ",";
                 }
             }
         }
@@ -99,7 +99,7 @@ ex) {0} input.txt result.txt
 
 ---
 ";
-            Console.WriteLine(Green(helpMsg), selfProcessFileName);
+            Console.WriteLine(Green(helpMsg), SELF_PROCESS_FILE_NAME);
             SettingManager.LoadSettings();
 
             int argsCount = args.Length;

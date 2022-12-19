@@ -11,16 +11,16 @@ namespace managers
         public static readonly string INPUT_DELIMITER_KEY = "INPUT_DELIMITER";
         public static readonly string SQL_STR_SIGN_TYPE_KEY = "SQL_STR_SIGN_TYPE";
 
-        public static char INPUT_DELIMITER = '\n'; //입력 구분자
-        public static string SQL_STR_SIGN_TYPE = "'"; //문자열 부호 종류
+        public static char _inputDelimiter = '\n'; //입력 구분자
+        public static string _sqlStrSignType = "'"; //문자열 부호 종류
         /// <summary>
         /// 설정 저장
         /// </summary>
         public static void SaveSettings()
         {
             var iniFile = new IniFile();
-            iniFile[Program.selfProcessFileName][INPUT_DELIMITER_KEY] = INPUT_DELIMITER;
-            iniFile[Program.selfProcessFileName][SQL_STR_SIGN_TYPE_KEY] = SQL_STR_SIGN_TYPE;
+            iniFile[Program.SELF_PROCESS_FILE_NAME][INPUT_DELIMITER_KEY] = _inputDelimiter;
+            iniFile[Program.SELF_PROCESS_FILE_NAME][SQL_STR_SIGN_TYPE_KEY] = _sqlStrSignType;
             iniFile.Save(SETTING_FILE_NAME);
         }
         /// <summary>
@@ -35,11 +35,11 @@ namespace managers
                 var iniFile = new IniFile();
                 iniFile.Load(SETTING_FILE_NAME);
 
-                if (!iniFile.ContainsSection(Program.selfProcessFileName)) //현재 실행 프로세스 파일 명에 해당하는 섹션이 존재하지 않을 경우
+                if (!iniFile.ContainsSection(Program.SELF_PROCESS_FILE_NAME)) //현재 실행 프로세스 파일 명에 해당하는 섹션이 존재하지 않을 경우
                     goto USE_DEFAULT_SETTINGS;
 
-                INPUT_DELIMITER = Convert.ToChar(iniFile[Program.selfProcessFileName][INPUT_DELIMITER_KEY].ToInt());
-                SQL_STR_SIGN_TYPE = iniFile[Program.selfProcessFileName][SQL_STR_SIGN_TYPE_KEY].ToString();
+                _inputDelimiter = Convert.ToChar(iniFile[Program.SELF_PROCESS_FILE_NAME][INPUT_DELIMITER_KEY].ToInt());
+                _sqlStrSignType = iniFile[Program.SELF_PROCESS_FILE_NAME][SQL_STR_SIGN_TYPE_KEY].ToString();
                 return;
             }
 
