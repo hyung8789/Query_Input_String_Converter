@@ -3,22 +3,16 @@
 
 <img src="./res/icons8-sql-48.png">
 
-    1) 쿼리문 사용 시
-
 ```sql
 SELECT * FROM FooTable WHERE FooTable.Key IN ('FOO1', 'FOO2');
+--위와 같은 쿼리문 사용 시 일련의 데이터 목록으로부터 입력 위한 문자열로 변환이 필요 할 경우
 ```
-    
-    등과 같은 쿼리문 사용 시 일련의 데이터 목록으로부터 입력 위한 문자열로 변환이 필요 할 경우
-
-    1) 개발 과정에서
 
 ```csharp
 string[] fooArray = new string[] { "BAR1", "BAR2" };
-char[] fooArray = new char[] { 'a', 'b', 'c' }; 
+char[] fooArray = new char[] { 'a', 'b', 'c' };
+//위와 같이 일련의 문자열 목록 혹은 단일 문자 목록으로부터 입력 위한 문자열 혹은 문자로 변환이 필요 할 경우
 ```
-
-    등과 같이 일련의 문자열 목록 혹은 단일 문자 목록으로부터 입력 위한 문자열 혹은 문자로 변환이 필요 할 경우
 
 ## < 쿼리 입력 문자열 변환기 >
 
