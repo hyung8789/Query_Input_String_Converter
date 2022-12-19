@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "쿼리 입력 문자열 변환기", "쿼리 입력 문자열 변환기.csproj", "{385299ED-E255-4234-A293-3BB99E7141F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{385299ED-E255-4234-A293-3BB99E7141F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385299ED-E255-4234-A293-3BB99E7141F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385299ED-E255-4234-A293-3BB99E7141F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385299ED-E255-4234-A293-3BB99E7141F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A80C322-4906-4CD4-B7F7-FB0C7C2C6222}
+	EndGlobalSection
+EndGlobal
