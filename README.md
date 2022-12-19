@@ -20,3 +20,6 @@
 
 쿼리 입력 문자열 변환기.exe (입력 파일명) (출력 파일명 (Optional), 입력하지 않을 경우 클립보드로 결과 복사)
 ex) 쿼리 입력 문자열 변환기.exe input.txt result.txt
+
+## < System Requirement >
+- .Net Framework 4.8
