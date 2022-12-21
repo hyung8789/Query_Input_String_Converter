@@ -7,12 +7,13 @@ namespace managers
 {
     public class SettingManager
     {
+        #region "Public:"
         public static readonly string SETTING_FILE_NAME = "settings.ini";
         public static readonly string INPUT_DELIMITER_KEY = "INPUT_DELIMITER";
-        public static readonly string SQL_STR_SIGN_TYPE_KEY = "SQL_STR_SIGN_TYPE";
+        public static readonly string STR_SIGN_TYPE_KEY = "STR_SIGN_TYPE";
 
         public static char _inputDelimiter = '\n'; //입력 구분자
-        public static string _sqlStrSignType = "'"; //문자열 부호 종류
+        public static string _strSignType = "'"; //문자열 부호 종류
         /// <summary>
         /// 설정 저장
         /// </summary>
@@ -20,7 +21,7 @@ namespace managers
         {
             var iniFile = new IniFile();
             iniFile[Program.SELF_PROCESS_FILE_NAME][INPUT_DELIMITER_KEY] = _inputDelimiter;
-            iniFile[Program.SELF_PROCESS_FILE_NAME][SQL_STR_SIGN_TYPE_KEY] = _sqlStrSignType;
+            iniFile[Program.SELF_PROCESS_FILE_NAME][STR_SIGN_TYPE_KEY] = _strSignType;
             iniFile.Save(SETTING_FILE_NAME);
         }
         /// <summary>
@@ -39,12 +40,13 @@ namespace managers
                     goto USE_DEFAULT_SETTINGS;
 
                 _inputDelimiter = Convert.ToChar(iniFile[Program.SELF_PROCESS_FILE_NAME][INPUT_DELIMITER_KEY].ToInt());
-                _sqlStrSignType = iniFile[Program.SELF_PROCESS_FILE_NAME][SQL_STR_SIGN_TYPE_KEY].ToString();
+                _strSignType = iniFile[Program.SELF_PROCESS_FILE_NAME][STR_SIGN_TYPE_KEY].ToString();
                 return;
             }
 
 USE_DEFAULT_SETTINGS: //기본 설정 사용
             SaveSettings();
         }
+        #endregion
     }
 }
