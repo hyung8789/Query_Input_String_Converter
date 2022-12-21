@@ -1,6 +1,7 @@
 ﻿using managers;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
 using static Crayon.Output;
 
@@ -11,9 +12,32 @@ namespace 쿼리_입력_문자열_변환기
         #region "Public:"
         public static readonly string SELF_PROCESS_FILE_NAME =
             System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
+
+        [DllImport("user32.dll")]
+        // https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-deletemenu
+        public static extern int DeleteMenu(IntPtr hMenu, int nPosition, int wFlags);
+
+        [DllImport("user32.dll")]
+        // https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getsystemmenu
+        private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+        // https://learn.microsoft.com/ko-kr/windows/console/getconsolewindow
+        private static extern IntPtr GetConsoleWindow();
+
+        const int MF_BYCOMMAND = 0x00000000;
+        // https://learn.microsoft.com/ko-kr/windows/win32/menurc/wm-syscommand
+        const int SC_MINIMIZE = 0xF020;
+        const int SC_MAXIMIZE = 0xF030;
+        const int SC_SIZE = 0xF000;
+
         [STAThread]
         static void Main(string[] args)
         {
+            DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_MINIMIZE, MF_BYCOMMAND);
+            DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_MAXIMIZE, MF_BYCOMMAND);
+            DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_SIZE, MF_BYCOMMAND);
+
             string helpMsg =
                 Bold().Green().Text("< 쿼리 입력 문자열 변환기 >") + Environment.NewLine +
 @"
